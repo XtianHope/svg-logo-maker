@@ -44,7 +44,7 @@ function generateLogoSvg(text, textColor, shapeChoice, shapeColor) {
   }
 
 
-// Function to try to get text to render on top of shape, rather than behind or underneath
+// Function to try to get text to render on top of shape, rather than behind or underneath.
 function calculateTextPosition(shapeChoice, text) {
     let textX = 0;
     let textY = 0;
@@ -61,6 +61,13 @@ function calculateTextPosition(shapeChoice, text) {
     }
   
     return { x: textX, y: textY };
+  }
+
+  
+// Function to save SVG to file.
+function saveSvgToFile(svgContent) {
+    fs.writeFileSync('logo.svg', svgContent);
+    console.log('Generated logo.svg');
   }
 
 // Initiating logo creation process.
