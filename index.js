@@ -14,21 +14,20 @@ inquirer
   { type: 'list', name: 'shapeChoice', message: 'Choose a shape:', choices: ['circle', 'triangle', 'square'] },
   { type: 'input', name: 'shapeColor', message: 'Enter shape color:' },
 ])
-.then((answers) => {
-    const { text, textColor, shapeChoice, shapeColor } = answers;
-    // Creating SVG based on user input.
-    const svgContent = `<svg width="300" height="200">
-                          <text x="20" y="100" fill="${textColor}">${text}</text>
-                          ${generateShape(shapeChoice, shapeColor)}
-                       </svg>`;
-    // Saving generated SVG to 'logo.svg'.
-    fs.writeFileSync('logo.svg', svgContent);
-    console.log('Generated logo.svg');
-})
-//Error handling
-.catch((error) => {
-    console.error(error);
-  });
+.then(handleUserInput)
+.catch(handleError);
+}
+
+// Extract user inputs.
+function handleUserInput(answers) {
+const { text, textColor, shapeChoice, shapeColor } = answers;
+const svgContent = generateLogoSvg(text, textColor, shapeChoice, shapeColor);
+saveSvgToFile(svgContent);
+}
+
+// Error handling.
+function handleError(error) {
+console.error(error);
 }
 
 // Initiating logo creation process.
