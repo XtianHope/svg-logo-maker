@@ -38,7 +38,7 @@ function generateLogoSvg(text, textColor, shapeChoice, shapeColor) {
   
     const svgContent = `<svg width="300" height="200">
                           ${shapeSvg}
-                          <text x="${textPosition.x}" y="${textPosition.y}" fill="${textColor}">${text}</text>
+                          <text x="${textPosition.x}" y="${textPosition.y}" fill="${textColor}" font-family="Arial, sans-serif" font-weight="bold">${text}</text>
                         </svg>`;
     return svgContent;
   }
