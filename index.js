@@ -20,4 +20,7 @@ inquirer
                           <text x="20" y="100" fill="${textColor}">${text}</text>
                           ${generateShape(shapeChoice, shapeColor)}
                        </svg>`;
+    // Saving generated SVG to 'logo.svg'.
+    fs.writeFileSync('logo.svg', svgContent);
+    console.log('Generated logo.svg');
 })
