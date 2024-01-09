@@ -24,8 +24,11 @@ inquirer
     fs.writeFileSync('logo.svg', svgContent);
     console.log('Generated logo.svg');
 })
-//Errors handling
+//Error handling
 .catch((error) => {
     console.error(error);
   });
 }
+
+// Initiating logo creation process.
+createLogo();
