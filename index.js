@@ -13,5 +13,11 @@ inquirer
   { type: 'list', name: 'shapeChoice', message: 'Choose a shape:', choices: ['circle', 'triangle', 'square'] },
   { type: 'input', name: 'shapeColor', message: 'Enter shape color:' },
 ])
-
-}
+.then((answers) => {
+    const { text, textColor, shapeChoice, shapeColor } = answers;
+    // Creating SVG based on user input.
+    const svgContent = `<svg width="300" height="200">
+                          <text x="20" y="100" fill="${textColor}">${text}</text>
+                          ${generateShape(shapeChoice, shapeColor)}
+                       </svg>`;
+})
