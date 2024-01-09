@@ -43,5 +43,25 @@ function generateLogoSvg(text, textColor, shapeChoice, shapeColor) {
     return svgContent;
   }
 
+
+// Function to try to get text to render on top of shape, rather than behind or underneath
+function calculateTextPosition(shapeChoice, text) {
+    let textX = 0;
+    let textY = 0;
+  
+    if (shapeChoice === 'circle') {
+      textX = 150 - text.length * 10;
+      textY = 100;
+    } else if (shapeChoice === 'triangle') {
+      textX = 70;
+      textY = 100;
+    } else if (shapeChoice === 'square') {
+      textX = 65;
+      textY = 120;
+    }
+  
+    return { x: textX, y: textY };
+  }
+
 // Initiating logo creation process.
 createLogo();
