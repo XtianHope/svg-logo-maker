@@ -25,17 +25,19 @@ function handleError(error) {
   console.error(error);
 }
 
-// Extract user inputs.
-function handleUserInput(answers) {
-const { text, textColor, shapeChoice, shapeColor } = answers;
-const svgContent = generateLogoSvg(text, textColor, shapeChoice, shapeColor);
-saveSvgToFile(svgContent);
-}
-
-// Error handling.
-function handleError(error) {
-console.error(error);
-}
+// Returns an instance of the corresponding shape class based on the user's shape choice and color
+function getShape(shapeChoice, shapeColor) {
+    switch (shapeChoice) {
+      case 'circle':
+        return new Circle(shapeColor);
+      case 'triangle':
+        return new Triangle(shapeColor);
+      case 'square':
+        return new Square(shapeColor);
+      default:
+        throw new Error('Invalid shape choice');
+    }
+  }
 
 
 // Function to create SVG logo with user's responses.
