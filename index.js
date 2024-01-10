@@ -53,17 +53,17 @@ function generateLogoSvg(text, textColor, shape) {
 
 
 // Function to try to get text to render on top of shape, rather than behind or underneath.
-function calculateTextPosition(shapeChoice, text) {
+function calculateTextPosition(shape) {
     let textX = 0;
     let textY = 0;
   
-    if (shapeChoice === 'circle') {
+    if (shape instanceof Circle) {
       textX = 150 - text.length * 10;
       textY = 100;
-    } else if (shapeChoice === 'triangle') {
+    } else if (shape instanceof Triangle) {
       textX = 70;
       textY = 100;
-    } else if (shapeChoice === 'square') {
+    } else if (shape instanceof Square) {
       textX = 65;
       textY = 120;
     }
