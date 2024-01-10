@@ -1,21 +1,28 @@
-// Importing needed modules: 'inquirer' for user prompts, 'fs' for file handling.
+// Import necessary modules
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { generateShape } = require('./lib/shapes');
+const { Circle, Triangle, Square } = require('./lib/shapes');
 
-
-// Function to create a logo based on user input.
+// Function to initiate logo creation based on user response
 function createLogo() {
-// Prompt for users for text, text color, shape choice, and shape color.
-inquirer
-.prompt([
-  { type: 'input', name: 'text', message: 'Enter up to three characters for the text:' },
-  { type: 'input', name: 'textColor', message: 'Enter text color:' },
-  { type: 'list', name: 'shapeChoice', message: 'Choose a shape:', choices: ['circle', 'triangle', 'square'] },
-  { type: 'input', name: 'shapeColor', message: 'Enter shape color:' },
-])
-.then(handleUserInput)
-.catch(handleError);
+  inquirer
+    .prompt([
+      { type: 'input', name: 'text', message: 'Enter up to three characters for the text:' },
+      { type: 'input', name: 'textColor', message: 'Enter text color:' },
+      { type: 'list', name: 'shapeChoice', message: 'Choose a shape:', choices: ['circle', 'triangle', 'square'] }, 
+      { type: 'input', name: 'shapeColor', message: 'Enter shape color:' }, 
+    ])
+    .then(answers => {
+      const shape = getShape(answers.shapeChoice, answers.shapeColor);
+      const svgContent = generateLogoSvg(answers.text, answers.textColor, shape);
+      saveSvgToFile(svgContent);
+    })
+    .catch(handleError);
+}
+
+// Function to handle and display errors
+function handleError(error) {
+  console.error(error);
 }
 
 // Extract user inputs.
