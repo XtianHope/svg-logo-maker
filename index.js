@@ -41,15 +41,14 @@ function getShape(shapeChoice, shapeColor) {
 
 
 // Function to create SVG logo with user's responses.
-function generateLogoSvg(text, textColor, shapeChoice, shapeColor) {
-    const shapeSvg = generateShape(shapeChoice, shapeColor);
-    const textPosition = calculateTextPosition(shapeChoice, text);
+function generateLogoSvg(text, textColor, shape) {
+    const shapeSvg = shape.render();
+    const textPosition = calculateTextPosition(shape);
   
-    const svgContent = `<svg width="300" height="200">
-                          ${shapeSvg}
-                          <text x="${textPosition.x}" y="${textPosition.y}" fill="${textColor}" font-family="Arial, sans-serif" font-weight="bold">${text}</text>
-                        </svg>`;
-    return svgContent;
+    return `<svg width="300" height="200">
+              ${shapeSvg}
+              <text x="${textPosition.x}" y="${textPosition.y}" fill="${textColor}" font-family="Arial, sans-serif" font-weight="bold">${text}</text>
+            </svg>`;
   }
 
 
