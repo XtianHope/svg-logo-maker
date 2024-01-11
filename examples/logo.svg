@@ -1,4 +1,0 @@
-<svg width="300" height="200">
-                          <circle cx="150" cy="100" r="50" fill="Red" />
-                          <text x="100" y="100" fill="Pink" font-family="Arial, sans-serif" font-weight="bold">Hello</text>
-                        </svg>

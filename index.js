@@ -43,7 +43,7 @@ function getShape(shapeChoice, shapeColor) {
 // Function to create SVG logo with user's responses.
 function generateLogoSvg(text, textColor, shape) {
     const shapeSvg = shape.render();
-    const textPosition = calculateTextPosition(shape);
+    const textPosition = calculateTextPosition(shape, text);
   
     return `<svg width="300" height="200">
               ${shapeSvg}
@@ -53,7 +53,7 @@ function generateLogoSvg(text, textColor, shape) {
 
 
 // Function to try to get text to render on top of shape, rather than behind or underneath.
-function calculateTextPosition(shape) {
+function calculateTextPosition(shape, text) {
     let textX = 0;
     let textY = 0;
   
