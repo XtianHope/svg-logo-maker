@@ -23,4 +23,4 @@ Learnings
 
 
 ## Links
-[Live URL](https://xtianhope.github.io/svg-logo-maker/)
+[Video URL](https://drive.google.com/file/d/1vhdLYIAg-1jKGUHKM2s5nG9huCoh4IFd/view?usp=sharing)
