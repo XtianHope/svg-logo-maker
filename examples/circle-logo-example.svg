@@ -1,4 +1,4 @@
-<svg width="300" height="200">
-              <circle cx="150" cy="100" r="50" fill="Blue" />
-              <text x="50" y="100" fill="Green" font-family="Arial, sans-serif" font-weight="bold">SVG SHAPES</text>
-            </svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+    <circle cx="150" cy="100" r="50" fill="orange" />
+    <text x="120" y="100" font-size="60" text-anchor="middle" fill="red">hey</text>
+  </svg>

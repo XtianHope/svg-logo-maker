@@ -45,10 +45,10 @@ function generateLogoSvg(text, textColor, shape) {
     const shapeSvg = shape.render();
     const textPosition = calculateTextPosition(shape, text);
   
-    return `<svg width="300" height="200">
-              ${shapeSvg}
-              <text x="${textPosition.x}" y="${textPosition.y}" fill="${textColor}" font-family="Arial, sans-serif" font-weight="bold">${text}</text>
-            </svg>`;
+    return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+    ${shapeSvg}
+    <text x="${textPosition.x}" y="${textPosition.y}" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
+  </svg>`;
   }
 
 
